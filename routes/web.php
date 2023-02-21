@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ComicController as ComicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $comics = config('comics.series');
-    $pages = config('comics.pages');
-    return view('index', compact('comics', 'pages'));
-});
+Route::get('/', [ComicController::class, 'index']);
 
 Route::get('/comic-detail/{id}', function($id) {
     $comics = config('comics.series');
@@ -31,15 +28,3 @@ Route::get('/comic-detail/{id}', function($id) {
 
     return view('comic-detail', compact('comics', 'pages', 'detail'));
 })->name('comic-detail');
-
-/*
-Route::get('comics/{param}', function ($param) {
-    $comics = config('comics.series');
-
-    $products = array_filter($comics, function($item) use($param) {
-        return $item['titolo'] == $param;
-    });
-
-    return view('comic-detail', compact('products'));
-})->name('detail-product');
-*/
