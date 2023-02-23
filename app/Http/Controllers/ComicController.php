@@ -8,7 +8,7 @@ use App\Models\Comic as Comic;
 class ComicController extends Controller
 {
     public function index() {
-        $comics = config('comics.series');
+        $comics = Comic::all();
         $pages = config('comics.pages');
         return view('index', compact('comics', 'pages'));
     }
