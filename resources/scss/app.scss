@@ -130,10 +130,19 @@ header {
 	color: $light-color;
 }
 
+.my-bg-green {
+	background-color: $green-color;
+	color: $light-color;
+}
+
 .my-text-navy {
 	color: $navy-color
 }
 
 .my-text-grey {
 	color: $grey-color;
+}
+
+.my-text-white-opacity {
+	color: $light-opacity;
 }
